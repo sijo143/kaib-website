@@ -1446,6 +1446,81 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   .footer-grid{gap:26px;margin-bottom:32px;}
   .footer-brand p{margin-bottom:16px;}
 }
+
+/* ===== MOBILE FIX PASS 2 — nav weight, stats card, philosophy padding, journey tabs,
+   rec-panel density, trust-badge alignment, first-visit cards, floating bottom CTA ===== */
+@media(max-width:560px){
+  /* 1. Nav — CTA moves to the floating bottom bar, so header keeps only logo + hamburger */
+  .nav-cta{display:none;}
+
+  /* 2. Hero stats card — remove the stray bottom border/padding under the last row */
+  .trust-strip{padding:16px 16px 6px;}
+  .trust-item{padding-bottom:14px;}
+  .trust-item:nth-child(n+3){border-bottom:none;padding-bottom:2px;}
+
+  /* 3. Philosophy / editorial bridge — text was touching the viewport edges */
+  .bridge-inner{padding:0 22px;}
+
+  /* 4. Find Your Healing Journey — single swipeable row instead of a wrapped grid */
+  .goal-grid{
+    flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity;padding-bottom:6px;margin-bottom:24px;gap:8px;
+    -ms-overflow-style:none;scrollbar-width:none;
+  }
+  .goal-grid::-webkit-scrollbar{display:none;}
+  .goal-card{scroll-snap-align:start;padding:10px 16px;min-height:40px;}
+  .goal-more-btn{display:none;}
+  .goal-secondary{display:contents;}
+  .goal-secondary .goal-card{opacity:1;transform:none;animation:none;}
+
+  /* 5. Recommended For You card — less padding, more room for content */
+  .rec-panel .rec-left{padding:26px 20px;}
+  .rec-outcomes{gap:8px;margin-bottom:22px;}
+  .rec-divider{margin:18px 0;}
+
+  /* 6. Trust badges (Personalised / Doctor-led / Kerala-trained / Evidence-informed) —
+     clean two-column grid, left-aligned within each column instead of centred wrapping */
+  .journey-trust{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;justify-content:start;
+    padding:20px 4px;margin-bottom:40px;
+  }
+  .journey-trust span{justify-content:flex-start;}
+
+  /* 7. "Your First Visit" — 60–90 min / online-or-in-person / no-obligation card */
+  .consult-details-left{width:100%;}
+  .consult-details{border-radius:14px;padding:16px 18px;box-shadow:0 6px 18px -12px rgba(42,38,32,0.12);}
+
+  /* 8. "Every Guest Receives" card — fix button overflow, tighten padding to match other cards */
+  .promise-panel{padding:24px 20px;margin-top:44px;}
+  .promise-panel h3{font-size:19px;margin-bottom:16px;}
+  .promise-list{gap:10px;margin-bottom:22px;}
+  .promise-ctas{flex-direction:column;gap:12px;}
+  .promise-ctas .btn{width:100%;min-width:0;box-sizing:border-box;text-align:center;justify-content:center;}
+
+  /* Apply the same tightened padding language to the other mobile "cards" for consistency */
+  .guidance-panel{padding:24px 20px;}
+  .gc-expect{padding:16px 18px;}
+
+  /* 9. Floating mobile action bar — replaces the header CTA + the standalone WhatsApp bubble */
+  .wa-float{display:none;}
+  .mobile-cta-bar{
+    position:fixed;left:12px;right:12px;bottom:14px;z-index:600;
+    display:flex;align-items:stretch;gap:10px;
+    transform:translateY(140%);transition:transform .3s var(--ease);
+  }
+  .mobile-cta-bar.is-visible{transform:translateY(0);}
+  .mobile-cta-bar .btn{
+    flex:1;min-height:52px;box-sizing:border-box;box-shadow:0 12px 26px -10px rgba(176,141,70,0.55);
+  }
+  .mobile-cta-whatsapp{
+    flex:0 0 52px;width:52px;height:52px;border-radius:50%;background:var(--forest);
+    display:flex;align-items:center;justify-content:center;box-shadow:0 12px 24px -10px rgba(0,0,0,0.35);
+  }
+  .mobile-cta-whatsapp img{width:26px;height:26px;object-fit:contain;}
+}
+@media(min-width:561px){
+  .mobile-cta-bar{display:none;}
+}
 </style>
 </head>
 <body>
@@ -1723,7 +1798,7 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
         <a href="#invite" class="btn btn-gold" id="recCta">Book a Consultation <svg class="icon btn-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
       </div>
       <div class="rec-right" id="recRight">
-        <img src="images/Stress Recovery Programme.jpg" alt="" class="rec-photo" id="recPhoto">
+        <img src="images/Stress.png" alt="" class="rec-photo" id="recPhoto">
         <div class="rec-quote-card">
           <span class="rec-doctor-label">Dr. Vijay Recommends</span>
           <p class="rec-doctor-quote" id="recQuote">"Chronic stress affects sleep, digestion, and immunity alike. We begin gently, restoring balance before anything else."</p>
@@ -2371,6 +2446,14 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   <img src="images/whatsapp-icon.png" alt="" class="wa-float-icon">
 </a>
 
+<!-- Mobile-only floating action bar: Book a Consultation + WhatsApp. Shows on scroll down, hides on scroll up. -->
+<div class="mobile-cta-bar" id="mobileCtaBar">
+  <a href="#invite" class="btn btn-gold">Book a Consultation</a>
+  <a class="mobile-cta-whatsapp" href="https://wa.me/34644795189" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <img src="images/whatsapp-icon.png" alt="" class="wa-float-icon">
+  </a>
+</div>
+
 <script>
 // Loader
 window.addEventListener('load', () => {
@@ -2433,6 +2516,31 @@ window.addEventListener('load', () => {
         }
       }, {passive:true});
     }
+  }
+}
+
+// Mobile floating CTA bar — shows while scrolling down, hides while scrolling up
+{
+  const mobileCtaBar = document.getElementById('mobileCtaBar');
+  if(mobileCtaBar){
+    let lastY = window.scrollY;
+    let ticking = false;
+    const update = ()=>{
+      const y = window.scrollY;
+      const delta = y - lastY;
+      if(y < 80){
+        mobileCtaBar.classList.remove('is-visible');
+      } else if(delta > 4){
+        mobileCtaBar.classList.add('is-visible');
+      } else if(delta < -4){
+        mobileCtaBar.classList.remove('is-visible');
+      }
+      lastY = y;
+      ticking = false;
+    };
+    window.addEventListener('scroll', ()=>{
+      if(!ticking){ requestAnimationFrame(update); ticking = true; }
+    }, {passive:true});
   }
 }
 
@@ -2539,14 +2647,14 @@ if(timelinePhoto){
 
 // Healing journey — dynamic recommendation
 const journeyData = {
-  stress:{title:'Stress Recovery Programme',chips:['Burnout','Anxiety','Poor Sleep','Fatigue'],desc:'For those feeling mentally exhausted, overwhelmed, or disconnected from everyday life — a personalised programme to calm the nervous system and restore balance.',outcomes:['Reduced stress and anxiety','Deeper, more restful sleep','Renewed clarity and energy'],quote:'"Stress is rarely the root cause. We begin by understanding what your body is trying to tell you."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:'images/Stress Recovery Programme.jpg',cta:'Book a Consultation'},
-  sleep:{title:'Restorative Sleep Programme',chips:['Insomnia','Restlessness','Irregular Sleep'],desc:'A gentle, personalised approach to help your body and mind wind down naturally, addressing root causes rather than masking symptoms.',outcomes:['Easier, faster time to sleep','Fewer night-time wakings','A calmer evening routine'],quote:'"Poor sleep is rarely just about sleep — we look at diet, stress, and daily rhythm together."',doctor:'Dr. Kiranlal VS, Ayurvedic Consultant',photo:'images/We Listen.png',cta:'Book a Consultation'},
-  digestion:{title:'Digestive Balance Programme',chips:['Bloating','Irregularity','Sensitive Digestion'],desc:'A personalised plan to strengthen digestive fire (Agni), ease discomfort, and rebuild a healthy relationship with food.',outcomes:['Improved digestion and comfort','More consistent energy after meals','Personalised dietary guidance'],quote:'"Healthy digestion begins with restoring balance, not suppressing symptoms."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:'images/We Understand.png',cta:'Book a Consultation'},
-  women:{title:"Women's Health Programme",chips:['Hormonal Balance','Cycle Health','Life Transitions'],desc:'Compassionate, personalised care addressing hormonal balance, cycle health, and the transitions unique to women at every stage of life.',outcomes:['Better hormonal balance','More comfortable cycles','Support through life transitions'],quote:'"Every stage of a woman\'s life calls for a different kind of care — we listen first, then personalise."',doctor:'Isabella Argenteri, Ayurvedic Therapist',photo:'images/We Personalise.png',cta:'Book a Consultation'},
-  ageing:{title:'Healthy Ageing Programme',chips:['Vitality','Mobility','Preventive Care'],desc:'Supporting long-term vitality, mobility, and resilience through authentic Ayurvedic care tailored to your stage of life.',outcomes:['Improved mobility and vitality','Stronger long-term resilience','A preventive, whole-body approach'],quote:'"Our goal isn\'t simply adding years to life—it is helping you enjoy them with vitality."',doctor:'Dr. Kiranlal VS, Ayurvedic Consultant',photo:'images/Healing Retreats.png',cta:'Book a Consultation'},
-  pain:{title:'Pain & Mobility Programme',chips:['Joint Pain','Stiffness','Chronic Discomfort'],desc:'A personalised combination of treatments and guidance designed to ease pain, restore mobility, and support long-term joint health.',outcomes:['Reduced pain and stiffness','Improved range of motion','A sustainable long-term plan'],quote:'"We look beyond the joint that hurts to understand what\'s driving the imbalance."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:'images/Healing.png',cta:'Book a Consultation'},
-  detox:{title:'Detox & Rejuvenation Programme',chips:['Chronic Concerns','Detox','Lifestyle Reset'],desc:'A personalised Panchakarma-based detox and rejuvenation programme designed entirely around your health and guided by your doctor.',outcomes:['A deep, guided reset','Renewed energy and clarity','A personalised lifestyle plan'],quote:'"Panchakarma is not one-size-fits-all — every protocol is built around the person in front of us."',doctor:'Dr. Kiranlal VS, Ayurvedic Consultant',photo:'images/You Begin Healing.png',cta:'Book a Consultation'},
-  unsure:{title:"Let's Talk It Through Together",chips:['Anyone unsure where to begin'],desc:"That's completely alright — most guests start here. Our Kerala-trained doctors begin with a conversation about your health, lifestyle, and goals before recommending anything.",outcomes:['A no-obligation conversation','Guidance from a real doctor','A plan built around you, not a package'],quote:'"You don\'t need to know the right path yet. That\'s exactly what the first consultation is for."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:'images/team-photo.png',cta:'Book a Consultation'}
+  stress:{title:'Stress Recovery Programme',chips:['Burnout','Anxiety','Poor Sleep','Fatigue'],desc:'For those feeling mentally exhausted, overwhelmed, or disconnected from everyday life — a personalised programme to calm the nervous system and restore balance.',outcomes:['Reduced stress and anxiety','Deeper, more restful sleep','Renewed clarity and energy'],quote:'"Stress is rarely the root cause. We begin by understanding what your body is trying to tell you."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:"images/Stress.png",cta:'Book a Consultation'},
+  sleep:{title:'Restorative Sleep Programme',chips:['Insomnia','Restlessness','Irregular Sleep'],desc:'A gentle, personalised approach to help your body and mind wind down naturally, addressing root causes rather than masking symptoms.',outcomes:['Easier, faster time to sleep','Fewer night-time wakings','A calmer evening routine'],quote:'"Poor sleep is rarely just about sleep — we look at diet, stress, and daily rhythm together."',doctor:'Dr. Kiranlal VS, Ayurvedic Consultant',photo:"images/Sleep.png",cta:'Book a Consultation'},
+  digestion:{title:'Digestive Balance Programme',chips:['Bloating','Irregularity','Sensitive Digestion'],desc:'A personalised plan to strengthen digestive fire (Agni), ease discomfort, and rebuild a healthy relationship with food.',outcomes:['Improved digestion and comfort','More consistent energy after meals','Personalised dietary guidance'],quote:'"Healthy digestion begins with restoring balance, not suppressing symptoms."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:"images/Digestion.png",cta:'Book a Consultation'},
+  women:{title:"Women's Health Programme",chips:['Hormonal Balance','Cycle Health','Life Transitions'],desc:'Compassionate, personalised care addressing hormonal balance, cycle health, and the transitions unique to women at every stage of life.',outcomes:['Better hormonal balance','More comfortable cycles','Support through life transitions'],quote:'"Every stage of a woman\'s life calls for a different kind of care — we listen first, then personalise."',doctor:'Isabella Argenteri, Ayurvedic Therapist',photo:"Women's Health.png",cta:'Book a Consultation'},
+  ageing:{title:'Healthy Ageing Programme',chips:['Vitality','Mobility','Preventive Care'],desc:'Supporting long-term vitality, mobility, and resilience through authentic Ayurvedic care tailored to your stage of life.',outcomes:['Improved mobility and vitality','Stronger long-term resilience','A preventive, whole-body approach'],quote:'"Our goal isn\'t simply adding years to life—it is helping you enjoy them with vitality."',doctor:'Dr. Kiranlal VS, Ayurvedic Consultant',photo:"images/Healthy Aging.png",cta:'Book a Consultation'},
+  pain:{title:'Pain & Mobility Programme',chips:['Joint Pain','Stiffness','Chronic Discomfort'],desc:'A personalised combination of treatments and guidance designed to ease pain, restore mobility, and support long-term joint health.',outcomes:['Reduced pain and stiffness','Improved range of motion','A sustainable long-term plan'],quote:'"We look beyond the joint that hurts to understand what\'s driving the imbalance."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:"images/Pain & Mobility.png",cta:'Book a Consultation'},
+  detox:{title:'Detox & Rejuvenation Programme',chips:['Chronic Concerns','Detox','Lifestyle Reset'],desc:'A personalised Panchakarma-based detox and rejuvenation programme designed entirely around your health and guided by your doctor.',outcomes:['A deep, guided reset','Renewed energy and clarity','A personalised lifestyle plan'],quote:'"Panchakarma is not one-size-fits-all — every protocol is built around the person in front of us."',doctor:'Dr. Kiranlal VS, Ayurvedic Consultant',photo:"images/Detox & Rejuvenation.png",cta:'Book a Consultation'},
+  unsure:{title:"Let's Talk It Through Together",chips:['Anyone unsure where to begin'],desc:"That's completely alright — most guests start here. Our Kerala-trained doctors begin with a conversation about your health, lifestyle, and goals before recommending anything.",outcomes:['A no-obligation conversation','Guidance from a real doctor','A plan built around you, not a package'],quote:'"You don\'t need to know the right path yet. That\'s exactly what the first consultation is for."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:"I'm Not Sure.png",cta:'Book a Consultation'}
 };
 const goalChipsEl = document.getElementById('goalChips');
 if(goalChipsEl){
