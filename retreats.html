@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retreats — Kerala Ayurveda Institute Barcelona</title>
+<meta name="description" content="What your retreat could feel like — a guided look at the rhythm of consultation, treatment, nourishment, rest and reflection at Kerala Ayurveda Institute Barcelona.">
+<meta name="theme-color" content="#233024">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "Kerala Ayurveda Institute Barcelona",
+  "image": "kaib-logo.svg",
+  "url": "https://keralaayurvedainstitutebcn.com",
+  "telephone": "+34644795189",
+  "email": "info@keralaayurvedainstitutebcn.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "C. Mar Rojo, 5, 5D",
+    "postalCode": "28821",
+    "addressLocality": "Coslada",
+    "addressRegion": "Madrid",
+    "addressCountry": "ES"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "hasMap": "https://maps.app.goo.gl/spBiEh1cQsSkh9Jc9",
+  "sameAs": [
+    "https://wa.me/34644795189"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+34644795189",
+    "email": "info@keralaayurvedainstitutebcn.com",
+    "contactType": "customer service",
+    "areaServed": "ES",
+    "availableLanguage": ["English","Spanish","Malayalam"]
+  }
+}
+</script>
+
+<link rel="stylesheet" href="https://use.typekit.net/tau2sow.css">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ivory:#F6F0E3;
+  --ivory-soft:#FBF8F2;
+  --white:#FFFDF9;
+  --ink:#2A2620;
+  --ink-soft:#5C564C;
+  --gold:#B8843A;
+  --gold-text:#7A5F22;
+  --gold-light:#C9A96A;
+  --gold-soft:#D8BE86;
+  --sage:#6E7A5E;
+  --sage-bg:#EDE9DA;
+  --sage-deep:#4E5A42;
+  --forest:#233024;
+  --forest-deep:#1B2519;
+  --olive:#2E3B27;
+  --line:rgba(42,38,32,0.12);
+  --radius:2px;
+  --serif: 'loretta-display', 'Fraunces', Georgia, serif;
+  --sans: 'General Sans', 'Inter', -apple-system, sans-serif;
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --section-pad: clamp(80px, 10vw, 160px);
+  --retreat-bg:#F7F2EA;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+a:focus-visible, button:focus-visible{outline:2px solid var(--gold-text);outline-offset:3px;border-radius:2px;}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:10000;background:var(--ink);color:var(--ivory-soft);padding:12px 20px;font-size:14px;border-radius:2px;transition:top .3s var(--ease);}
+.skip-link:focus{top:12px;}
+.icon{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;display:inline-block;vertical-align:-0.14em;flex-shrink:0;transition:color .22s ease-out,opacity .22s ease-out;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *, *::before, *::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+  .reveal{opacity:1;transform:none;}
+}
+body{font-family:var(--sans);background:var(--ivory);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+.container{max-width:1280px;margin:0 auto;padding:0 40px;}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.is-visible{opacity:1;transform:translateY(0);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 30px;border-radius:100px;font-size:14px;font-weight:600;letter-spacing:.01em;cursor:pointer;border:none;transition:all .3s var(--ease);}
+.btn-gold{background:var(--gold);color:#fff;box-shadow:0 14px 30px -12px rgba(176,141,70,0.55);}
+.btn-gold:hover{background:#9c7a37;}
+
+/* ===== NAV (shared with homepage) ===== */
+header{position:fixed;top:0;left:0;right:0;z-index:500;padding:16px 0;transition:all .5s var(--ease);background:rgba(251,248,242,0.86);backdrop-filter:blur(14px);border-bottom:1px solid rgba(42,38,32,0.06);}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand-mark{position:relative;width:168px;height:64px;flex-shrink:0;display:block;}
+.brand-icon{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:left center;}
+.brand-icon-light{opacity:0;}
+.brand-icon-dark{opacity:1;}
+.nav-links{display:flex;align-items:center;gap:34px;}
+.nav-links a{position:relative;font-size:13px;color:var(--ink);opacity:.9;padding-bottom:4px;transition:color .25s ease-out,opacity .25s ease-out;}
+.nav-links a::after{content:'';position:absolute;left:50%;right:50%;bottom:0;height:1px;background:var(--gold-soft);transition:left .25s ease-out,right .25s ease-out;}
+.nav-links a:hover,.nav-links a:focus-visible{opacity:1;color:var(--gold-text);}
+.nav-links a:hover::after,.nav-links a.active::after{left:0;right:0;}
+.nav-links a.active{opacity:1;color:var(--gold-text);}
+.nav-cta{display:flex;align-items:center;gap:22px;}
+.nav-toggle{display:none;background:none;border:none;font-size:22px;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center;color:var(--ink);}
+@media(max-width:980px){
+  .nav-links{display:flex;flex-direction:column;align-items:flex-start;gap:0;position:fixed;top:0;right:0;height:100vh;width:min(320px,80vw);background:var(--ivory-soft);padding:100px 32px 32px;transform:translateX(100%);transition:transform .5s var(--ease);box-shadow:-20px 0 50px -20px rgba(0,0,0,0.15);}
+  .nav-links.open{transform:translateX(0);}
+  .nav-links a{width:100%;padding:16px 0;border-bottom:1px solid var(--line);font-size:16px;opacity:1;}
+  .nav-toggle{display:flex;}
+}
+
+/* ===== PAGE HERO STRIP ===== */
+.retreat-hero{padding:calc(96px + 56px) 0 0;background:var(--white);}
+.retreat-hero .eyebrow{color:var(--gold-text);font-size:12.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:18px;text-align:center;}
+.retreat-hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(30px,4vw,42px);line-height:1.15;letter-spacing:-0.01em;max-width:720px;margin:0 auto 20px;text-align:center;}
+.retreat-hero p{font-size:16px;line-height:1.75;color:var(--ink-soft);max-width:600px;margin:0 auto;text-align:center;}
+
+/* ===== SECTION ===== */
+.rt-section{background:var(--white);padding:64px 0 var(--section-pad);}
+
+/* ===== YOUR RETREAT JOURNEY — chapters, daily rhythm, closing quote ===== */
+.rj-chapter{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-bottom:96px;}
+.rj-chapter.reverse .rj-media{order:2;}
+.rj-chapter.reverse .rj-text{order:1;}
+.rj-media{
+  aspect-ratio:4/5;border-radius:18px;overflow:hidden;opacity:0;transform:translateY(24px) scale(1.02);
+  transition:opacity .9s var(--ease),transform .9s var(--ease);
+}
+.rj-media.is-visible{opacity:1;transform:translateY(0) scale(1);}
+.rj-media img{width:100%;height:100%;object-fit:cover;display:block;}
+.rj-text{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease) .15s,transform .8s var(--ease) .15s;}
+.rj-text.is-visible{opacity:1;transform:translateY(0);}
+.rj-chapter-label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-text);font-weight:700;margin-bottom:10px;}
+.rj-chapter h3{font-size:clamp(26px,3vw,34px);margin-bottom:16px;font-family:var(--serif);font-weight:500;}
+.rj-text p{font-size:15.5px;color:var(--ink-soft);line-height:1.8;margin-bottom:14px;max-width:480px;}
+.rj-card{
+  background:var(--sage-bg);border-radius:14px;padding:26px 28px;margin-top:24px;max-width:480px;
+  opacity:0;transform:translateY(14px);transition:opacity .7s var(--ease) .35s,transform .7s var(--ease) .35s;
+}
+.rj-card.is-visible{opacity:1;transform:translateY(0);}
+.rj-card h4{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--forest-deep);margin-bottom:14px;font-weight:700;}
+.rj-card ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.rj-card li{font-size:14.5px;color:var(--ink);display:flex;gap:10px;align-items:center;}
+.rj-card li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold-text);flex-shrink:0;}
+
+.rj-rhythm{
+  background:var(--forest);color:var(--ivory-soft);border-radius:24px;padding:64px 48px;margin:0 0 96px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.rj-rhythm h3{font-size:clamp(24px,2.8vw,32px);margin-bottom:12px;color:var(--ivory-soft);font-family:var(--serif);font-weight:500;}
+.rj-rhythm > p{font-size:15px;color:rgba(246,240,227,0.7);max-width:480px;margin:0 auto 48px;line-height:1.7;}
+.rj-timeline{display:flex;flex-wrap:wrap;justify-content:center;gap:0;max-width:980px;margin:0 auto;}
+.rj-timeline-step{
+  display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 22px;position:relative;
+  opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease);
+}
+.rj-timeline-step.is-visible{opacity:1;transform:translateY(0);}
+.rj-timeline-step .dot{width:8px;height:8px;border-radius:50%;background:var(--gold-soft);}
+.rj-timeline-step .label{font-size:12.5px;color:rgba(246,240,227,0.85);white-space:nowrap;}
+.rj-timeline-sep{width:28px;height:1px;background:rgba(246,240,227,0.2);align-self:center;margin-top:-24px;}
+.rj-notice{margin-top:52px;padding-top:40px;border-top:1px solid rgba(246,240,227,0.14);}
+.rj-notice h4{font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;font-weight:700;}
+.rj-notice-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
+.rj-notice-tags span{
+  font-size:13px;color:rgba(246,240,227,0.85);border:1px solid rgba(246,240,227,0.2);border-radius:30px;padding:8px 16px;
+}
+
+.rj-closing-quote{text-align:center;max-width:680px;margin:0 auto;}
+.rj-closing-quote p{
+  font-family:var(--serif);font-size:clamp(24px,3vw,32px);line-height:1.4;color:var(--ink);font-style:italic;
+  opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease);
+}
+.rj-closing-quote p.is-visible{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  .rj-chapter{grid-template-columns:1fr;gap:32px;margin-bottom:64px;}
+  .rj-chapter.reverse .rj-media,.rj-chapter.reverse .rj-text{order:0;}
+  .rj-media{aspect-ratio:16/11;}
+  .rj-card,.rj-text p{max-width:none;}
+  .rj-rhythm{padding:48px 24px;margin-bottom:64px;border-radius:18px;}
+  .rj-timeline{flex-direction:column;gap:22px;}
+  .rj-timeline-sep{display:none;}
+}
+
+/* ===== FOOTER (shared with homepage) ===== */
+footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;position:relative;overflow:hidden;}
+.footer-botanical{position:absolute;bottom:-60px;right:-40px;width:320px;height:320px;opacity:.04;stroke:var(--ivory-soft);fill:none;stroke-width:1;pointer-events:none;}
+.footer-grid{display:grid;grid-template-columns:1.55fr 1fr 1fr 1fr 1fr;grid-template-rows:auto auto;gap:8px 40px;margin-bottom:56px;position:relative;z-index:1;}
+.footer-brand{grid-column:1;grid-row:1;}
+.footer-social{grid-column:1;grid-row:2;align-self:start;display:flex;gap:12px;}
+.footer-explore{grid-column:2;grid-row:1 / span 2;}
+.footer-goals{grid-column:3;grid-row:1 / span 2;}
+.footer-visit{grid-column:4;grid-row:1 / span 2;}
+.footer-learn{grid-column:5;grid-row:1 / span 2;}
+.footer-logo img{height:34px;margin-bottom:18px;}
+.footer-brand p{font-size:14px;line-height:1.7;color:rgba(246,240,227,0.68);max-width:280px;margin-bottom:22px;}
+.footer-social a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(246,240,227,0.2);display:flex;align-items:center;justify-content:center;transition:all .25s var(--ease);}
+.footer-social a:hover{transform:translateY(-2px);border-color:var(--gold-soft);color:var(--gold-soft);}
+.footer-social a svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;}
+.footer-col h4{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:18px;}
+.footer-col a, .footer-col p{display:block;font-size:14px;margin-bottom:11px;color:rgba(246,240,227,0.72);}
+.footer-col a{position:relative;width:fit-content;transition:color .3s;}
+.footer-col a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:1px;background:var(--gold-soft);transition:width .3s var(--ease);}
+.footer-col a:hover{color:var(--ivory-soft);}
+.footer-col a:hover::after{width:100%;}
+.footer-visit address{font-style:normal;}
+.footer-visit .footer-contact-line{display:flex;align-items:center;gap:8px;}
+.footer-visit svg{width:14px;height:14px;flex-shrink:0;color:var(--gold-soft);fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;}
+.footer-directions{color:var(--gold-soft) !important;font-weight:600;display:inline-flex !important;align-items:center;gap:6px;}
+.footer-directions svg{color:var(--gold-soft);fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s var(--ease);}
+.footer-directions:hover svg{transform:translateX(3px);}
+.footer-learn p{font-size:13.5px;line-height:1.65;color:rgba(246,240,227,0.65);margin-bottom:18px;max-width:260px;}
+.footer-newsletter{display:flex;gap:0;border:1px solid rgba(246,240,227,0.2);border-radius:10px;overflow:hidden;}
+.footer-newsletter input{flex:1;background:transparent;border:none;padding:13px 16px;color:#fff;font-size:13.5px;font-family:var(--sans);}
+.footer-newsletter input::placeholder{color:rgba(246,240,227,0.45);}
+.footer-newsletter input:focus{outline:none;box-shadow:inset 0 0 0 2px var(--gold-soft);}
+.footer-newsletter button{background:var(--gold-soft);color:var(--forest-deep);border:none;padding:0 18px;font-size:13px;font-weight:700;cursor:pointer;transition:background .25s;}
+.footer-newsletter button:hover{background:var(--gold-soft);}
+.footer-newsletter-note{font-size:11.5px;color:rgba(246,240,227,0.45);margin-top:10px;}
+.footer-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;color:rgba(246,240,227,0.5);padding-top:28px;border-top:1px solid rgba(246,240,227,0.12);position:relative;z-index:1;}
+@media(max-width:980px){
+  .footer-grid{grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto auto;}
+  .footer-brand{grid-column:1 / -1;grid-row:1;}
+  .footer-social{grid-column:1 / -1;grid-row:2;}
+  .footer-explore{grid-column:1;grid-row:3;}
+  .footer-goals{grid-column:2;grid-row:3;}
+  .footer-visit{grid-column:3;grid-row:3;}
+  .footer-learn{grid-column:1 / -1;grid-row:4;}
+}
+@media(max-width:700px){
+  .footer-grid{display:flex;flex-direction:column;gap:36px;}
+  .footer-brand{order:1;} .footer-learn{order:2;} .footer-visit{order:3;}
+  .footer-explore{order:4;} .footer-goals{order:5;} .footer-social{order:6;}
+}
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:400;width:56px;height:56px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;color:var(--ivory-soft);box-shadow:0 12px 28px -8px rgba(0,0,0,0.3);cursor:pointer;transition:transform .3s;font-size:22px;}
+.wa-float:hover{transform:scale(1.06);}
+.wa-float-icon{width:28px;height:28px;object-fit:contain;display:block;}
+
+/* ===== MOBILE REFINEMENT — compact, efficient spacing & type for small screens ===== */
+@media(max-width:560px){
+  :root{ --section-pad: 52px; }
+  .container{padding:0 20px;}
+  .retreat-hero{padding:calc(80px + 20px) 0 0;}
+  .retreat-hero h1{font-size:clamp(26px,7vw,32px);margin-bottom:14px;}
+  .retreat-hero p{font-size:15px;}
+  .rt-section{padding:36px 0 var(--section-pad);}
+
+  .rj-chapter{margin-bottom:44px;gap:24px;}
+  .rj-text p{margin-bottom:10px;font-size:14.5px;}
+  .rj-chapter h3{font-size:clamp(22px,6vw,26px);margin-bottom:12px;}
+  .rj-card{padding:20px 20px;margin-top:16px;}
+  .rj-rhythm{padding:32px 18px;margin-bottom:44px;}
+  .rj-rhythm h3{font-size:clamp(20px,5.5vw,24px);}
+  .rj-rhythm > p{margin-bottom:28px;}
+  .rj-notice{margin-top:32px;padding-top:24px;}
+  .rj-closing-quote p{font-size:clamp(20px,5.5vw,24px);}
+
+  footer{padding:52px 0 24px;}
+  .footer-grid{gap:26px;margin-bottom:32px;}
+  .footer-brand p{margin-bottom:16px;}
+}
+</style>
+</head>
+<body>
+<a href="retreats.html#main" class="skip-link">Skip to content</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="icon-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 7"/></symbol>
+  <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/></symbol>
+  <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M6 3h3l2 5-2.5 2A11 11 0 0013 14.5a11 11 0 004.5 4.5l2-2.5 5 2v3a2 2 0 01-2.2 2A18 18 0 014 5.2 2 2 0 016 3z"/></symbol>
+  <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+  <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></symbol>
+  <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.6" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="icon-facebook" viewBox="0 0 24 24"><path d="M14.5 21v-9h2.7l.5-3.3h-3.2V6.6c0-1 .3-1.7 1.8-1.7h1.6V2c-.4 0-1.5-.1-2.6-.1-2.6 0-4.3 1.5-4.3 4.4v2.4H8.4v3.3H11V21"/></symbol>
+  <symbol id="icon-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></symbol>
+</svg>
+
+<!-- ===== NAV ===== -->
+<header id="siteHeader">
+  <div class="container nav-inner">
+    <a href="kaib-homepage.html#hero" class="brand">
+      <span class="brand-mark">
+        <img src="kaib-logo-dark.svg" class="brand-icon brand-icon-dark" alt="Kerala Ayurveda Institute Barcelona">
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="kaib-homepage.html#doctors">About</a>
+      <a href="retreats.html" class="active">Retreats</a>
+      <a href="kaib-homepage.html#options">Treatments</a>
+      <a href="kaib-homepage.html#options">Courses</a>
+      <a href="kaib-homepage.html#visit">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="kaib-homepage.html#invite" class="btn btn-gold" style="padding:13px 26px;">Book a Consultation</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <svg class="icon" style="font-size:22px;" id="navToggleIcon"><use href="#icon-menu"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===== PAGE HERO ===== -->
+<div class="retreat-hero">
+  <div class="container">
+    <span class="eyebrow">YOUR RETREAT JOURNEY</span>
+    <h1>Experience what your healing journey could look like.</h1>
+    <p>From the moment you arrive until the day you return home, every part of your retreat is thoughtfully designed to support healing, rest, and lasting wellbeing.</p>
+  </div>
+</div>
+
+<!-- ===== YOUR RETREAT JOURNEY ===== -->
+<section class="rt-section">
+  <div class="container">
+
+    <!-- Chapter 01 — Arriving -->
+    <div class="rj-chapter">
+      <div class="rj-media" id="rjMedia1">
+        <img src="We Look Forward to Welcoming You.png" alt="A guest warmly welcomed at the retreat entrance in soft morning light">
+      </div>
+      <div class="rj-text" id="rjText1">
+        <div class="rj-chapter-label">Chapter 01 — Arriving</div>
+        <h3>Arriving</h3>
+        <p>From the moment you arrive, you're welcomed into a calm and peaceful environment designed for healing.</p>
+        <p>You'll settle into your accommodation, meet the team, and ease into the retreat at a comfortable pace.</p>
+        <p>Everything is intentionally unhurried, giving you the space to relax before your treatments begin.</p>
+        <div class="rj-card" id="rjCard1">
+          <h4>Your Arrival Includes</h4>
+          <ul>
+            <li>Comfortable Accommodation</li>
+            <li>Warm Welcome</li>
+            <li>Peaceful Surroundings</li>
+            <li>Time To Settle In</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 02 — Living the Retreat -->
+    <div class="rj-chapter reverse">
+      <div class="rj-media" id="rjMedia2">
+        <img src="room-2.jpg" alt="A guest's daily rhythm at the retreat — therapy, meals, rest, and quiet reflection">
+      </div>
+      <div class="rj-text" id="rjText2">
+        <div class="rj-chapter-label">Chapter 02 — Living the Retreat</div>
+        <h3>Living the Retreat</h3>
+        <p>Each day follows a gentle rhythm that balances personalised treatments with nourishing food, rest, movement, and quiet moments to reconnect with yourself.</p>
+        <p>Your doctor continually reviews your progress, adjusting therapies as your body begins to respond.</p>
+        <p>Healing isn't rushed — it unfolds naturally, one day at a time.</p>
+      </div>
+    </div>
+
+    <!-- Daily Rhythm — dark, minimal block -->
+    <div class="rj-rhythm reveal">
+      <h3>A Day At The Retreat</h3>
+      <p>No two guests are exactly the same, but every day follows a calm rhythm designed to support your recovery.</p>
+      <div class="rj-timeline" id="rjTimeline">
+        <div class="rj-timeline-step"><span class="dot"></span><span class="label">Wake Naturally</span></div>
+        <div class="rj-timeline-sep"></div>
+        <div class="rj-timeline-step"><span class="dot"></span><span class="label">Herbal Tea</span></div>
+        <div class="rj-timeline-sep"></div>
+        <div class="rj-timeline-step"><span class="dot"></span><span class="label">Doctor Review</span></div>
+        <div class="rj-timeline-sep"></div>
+        <div class="rj-timeline-step"><span class="dot"></span><span class="label">Personalised Therapies</span></div>
+        <div class="rj-timeline-sep"></div>
+        <div class="rj-timeline-step"><span class="dot"></span><span class="label">Fresh Ayurvedic Meals</span></div>
+        <div class="rj-timeline-sep"></div>
+        <div class="rj-timeline-step"><span class="dot"></span><span class="label">Time To Rest</span></div>
+        <div class="rj-timeline-sep"></div>
+        <div class="rj-timeline-step"><span class="dot"></span><span class="label">Yoga &amp; Breathing</span></div>
+        <div class="rj-timeline-sep"></div>
+        <div class="rj-timeline-step"><span class="dot"></span><span class="label">Evening Reflection</span></div>
+        <div class="rj-timeline-sep"></div>
+        <div class="rj-timeline-step"><span class="dot"></span><span class="label">Deep Sleep</span></div>
+      </div>
+      <div class="rj-notice">
+        <h4>Guests Often Notice</h4>
+        <div class="rj-notice-tags">
+          <span>Better Sleep</span>
+          <span>More Energy</span>
+          <span>Reduced Stress</span>
+          <span>Improved Digestion</span>
+          <span>Greater Mental Clarity</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chapter 03 — Returning Home -->
+    <div class="rj-chapter">
+      <div class="rj-media" id="rjMedia3">
+        <img src="Receive Your Personalised Plan.png" alt="A doctor handing a guest their personalised health plan before departure">
+      </div>
+      <div class="rj-text" id="rjText3">
+        <div class="rj-chapter-label">Chapter 03 — Returning Home</div>
+        <h3>Returning Home</h3>
+        <p>As your retreat comes to an end, you won't simply leave with memories.</p>
+        <p>You'll return home with a personalised health plan, dietary guidance, lifestyle recommendations, and practical habits that help you continue your progress long after the retreat has finished.</p>
+        <p>Where appropriate, follow-up consultations can also support your long-term wellbeing.</p>
+        <div class="rj-card" id="rjCard3">
+          <h4>You'll Return Home With</h4>
+          <ul>
+            <li>Personal Health Plan</li>
+            <li>Dietary Guidance</li>
+            <li>Lifestyle Recommendations</li>
+            <li>Continued Support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="rj-closing-quote">
+      <p id="rjClosingQuote">"I finally felt that someone listened before trying to fix me."</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER (shared) ===== -->
+<footer>
+  <svg class="footer-botanical" viewBox="0 0 200 200" aria-hidden="true"><path d="M100 190C60 170 30 130 30 90c0-40 30-70 70-80 40 10 70 40 70 80 0 40-30 80-70 100z"/><path d="M100 10v180"/><path d="M100 40c-20 10-35 25-35 50M100 40c20 10 35 25 35 50M100 90c-25 8-40 25-40 55M100 90c25 8 40 25 40 55"/></svg>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div class="footer-logo"><img src="kaib-logo.svg" alt="Kerala Ayurveda Institute Barcelona"></div>
+        <p>Bringing authentic Kerala Ayurveda to Europe through Kerala-trained doctors, personalised care, and time-honoured healing traditions.</p>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><svg><use href="#icon-instagram"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg><use href="#icon-facebook"/></svg></a>
+        <a href="https://wa.me/34644795189" target="_blank" rel="noopener" aria-label="WhatsApp"><svg><use href="#icon-chat"/></svg></a>
+      </div>
+      <div class="footer-col footer-explore">
+        <h4>Explore</h4>
+        <a href="kaib-homepage.html#doctors">About Us</a>
+        <a href="kaib-homepage.html#doctors">Our Doctors</a>
+        <a href="retreats.html">Retreats</a>
+        <a href="kaib-homepage.html#options">Treatments</a>
+        <a href="kaib-homepage.html#options">Courses</a>
+        <a href="kaib-homepage.html#stories">Guest Stories</a>
+        <a href="kaib-homepage.html#faq">FAQs</a>
+        <a href="kaib-homepage.html#invite">Contact</a>
+      </div>
+      <div class="footer-col footer-goals">
+        <h4>Explore by Health Goal</h4>
+        <a href="kaib-homepage.html#invite">Stress &amp; Burnout</a>
+        <a href="kaib-homepage.html#invite">Digestive Health</a>
+        <a href="kaib-homepage.html#invite">Healthy Ageing</a>
+        <a href="kaib-homepage.html#invite">Weight Management</a>
+        <a href="kaib-homepage.html#invite">Better Sleep</a>
+        <a href="kaib-homepage.html#options">View All Treatments <svg class="icon" aria-hidden="true" style="width:12px;height:12px;"><use href="#icon-arrow"/></svg></a>
+      </div>
+      <div class="footer-col footer-visit">
+        <h4>Visit Us</h4>
+        <address><p>Kerala Ayurveda Institute Barcelona<br>C. Mar Rojo, 5, 5D, 28821 Coslada<br>Madrid, Spain</p></address>
+        <p class="footer-contact-line"><svg><use href="#icon-mail"/></svg> <a href="mailto:info@keralaayurvedainstitutebcn.com" style="margin:0;">info@keralaayurvedainstitutebcn.com</a></p>
+        <p class="footer-contact-line"><svg><use href="#icon-phone"/></svg> <a href="tel:+34644795189" style="margin:0;">+34 644 79 51 89</a></p>
+        <p class="footer-contact-line"><svg><use href="#icon-clock"/></svg> Monday – Friday · 9:00 AM – 6:00 PM</p>
+        <a href="https://maps.app.goo.gl/spBiEh1cQsSkh9Jc9" target="_blank" rel="noopener" class="footer-directions"><svg><use href="#icon-pin"/></svg> Get Directions <svg style="width:12px;height:12px;"><use href="#icon-arrow"/></svg></a>
+      </div>
+      <div class="footer-col footer-learn">
+        <span class="eyebrow" style="margin-bottom:8px;display:block;color:var(--gold-soft);font-size:12px;letter-spacing:.08em;text-transform:uppercase;">LEARN WITH US</span>
+        <h4 style="color:var(--ivory-soft);font-size:17px;text-transform:none;letter-spacing:0;margin-bottom:10px;">Continue Learning</h4>
+        <p>Receive occasional insights on Ayurveda, seasonal wellness, retreats, and practical guidance from our Kerala-trained doctors.</p>
+        <form class="footer-newsletter" id="newsletterForm">
+          <input type="email" placeholder="Your email address" required aria-label="Email address">
+          <button type="submit">Stay Connected</button>
+        </form>
+        <p class="footer-newsletter-note">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kerala Ayurveda Institute Barcelona. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/34644795189" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <img src="whatsapp-icon.png" alt="" class="wa-float-icon">
+</a>
+
+<script>
+// Nav toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', ()=>{
+  const isOpen = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  navToggle.querySelector('svg use').setAttribute('href', isOpen ? '#icon-close' : '#icon-menu');
+});
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+  navLinks.classList.remove('open');
+  navToggle.setAttribute('aria-expanded','false');
+  navToggle.querySelector('svg use').setAttribute('href', '#icon-menu');
+}));
+
+// Newsletter (no backend — just prevent default)
+document.getElementById('newsletterForm').addEventListener('submit', (e)=>{ e.preventDefault(); });
+
+// Reveal on scroll — generic
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target);} });
+},{threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+
+// Your Retreat Journey — chapter media/text/cards fade in, timeline steps stagger, closing quote settles
+{
+  const rjFadeEls = document.querySelectorAll('.rj-media, .rj-text, .rj-card');
+  const rjIO = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('is-visible'); rjIO.unobserve(en.target); } });
+  }, {threshold:0.2});
+  rjFadeEls.forEach(el=>rjIO.observe(el));
+
+  const rjQuote = document.getElementById('rjClosingQuote');
+  if(rjQuote){
+    const rjQuoteIO = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('is-visible'); rjQuoteIO.unobserve(en.target); } });
+    }, {threshold:0.4});
+    rjQuoteIO.observe(rjQuote);
+  }
+
+  const rjSteps = document.querySelectorAll('#rjTimeline .rj-timeline-step');
+  const rjTimelineIO = new IntersectionObserver((entries)=>{
+    entries.forEach(en=>{
+      if(en.isIntersecting){
+        rjSteps.forEach((step,i)=> setTimeout(()=> step.classList.add('is-visible'), i*90));
+        rjTimelineIO.unobserve(en.target);
+      }
+    });
+  }, {threshold:0.3});
+  const rjTimelineEl = document.getElementById('rjTimeline');
+  if(rjTimelineEl) rjTimelineIO.observe(rjTimelineEl);
+}
+</script>
+</body>
+</html>
