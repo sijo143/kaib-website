@@ -1537,15 +1537,19 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
     display:grid;grid-template-columns:1fr 1fr;gap:24px 24px;
     padding:0;background:transparent;backdrop-filter:none;border:none;box-shadow:none;
   }
+  .trust-item,
+  .trust-item:nth-child(odd),
+  .trust-item:nth-child(even),
+  .trust-item:first-child,
+  .trust-item:last-child{
+    padding-left:16px!important;padding-right:0!important;
+  }
   .trust-item{
     display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
-    width:auto;flex:none;padding:0 0 0 16px;border:none;gap:0;min-height:56px;
-    border-left:1px solid rgba(255,255,255,0.18);
+    width:auto;flex:none;padding-top:0;padding-bottom:0;border:none;gap:0;min-height:56px;
+    border-left:1px solid rgba(255,255,255,0.18)!important;border-right:none!important;
   }
   .trust-item:nth-child(n+3){border-bottom:none;padding-bottom:0;}
-  .trust-item:nth-child(odd){border-right:none;padding-left:16px;}
-  .trust-item:nth-child(even){padding-right:0;}
-  .trust-item:first-child{padding-left:16px;}
 
   /* 2b. Stats/trust strip redesign — every metric is a single unified trust statement:
      primary + secondary lines share the same weightless hierarchy, no oversized numerals. */
