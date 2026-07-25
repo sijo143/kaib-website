@@ -227,7 +227,7 @@ header.scrolled{
 header.scrolled .brand-icon-light{opacity:0;}
 header.scrolled .brand-icon-dark{opacity:1;}
 .brand-icon-mobile-light,.brand-icon-mobile-dark{display:none;}
-.copy-mobile{display:none;}
+.copy-mobile{display:none!important;}
 .brand-text{display:flex;flex-direction:column;}
 .brand-name{font-family:var(--serif);font-size:14px;line-height:1.2;letter-spacing:0.03em;text-transform:uppercase;color:#fff;transition:color .5s var(--ease);}
 .brand-sub{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-soft);margin-top:3px;transition:color .5s var(--ease);}
@@ -1534,8 +1534,8 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
 
   /* 2. Hero stats card — remove the stray bottom border/padding under the last row */
   .trust-strip{
-    display:grid;grid-template-columns:1fr 1fr;gap:30px 20px;
-    padding:22px 20px;background:transparent;backdrop-filter:none;border:none;box-shadow:none;
+    display:grid;grid-template-columns:1fr 1fr;gap:20px 20px;
+    padding:0;background:transparent;backdrop-filter:none;border:none;box-shadow:none;
   }
   .trust-item{
     display:block;width:auto;flex:none;padding:0;border:none;gap:0;
@@ -1545,11 +1545,15 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   .trust-item:nth-child(even){padding-right:0;}
   .trust-item:first-child{padding-left:0;}
 
-  /* 2b. Stats/trust strip redesign — bigger bolder numbers, quieter smaller labels,
-     larger fully-opaque gold icons instead of faint grey */
+  /* 2b. Stats/trust strip redesign — sized to sit proportionally under the hero CTAs,
+     primary line set in the site's heading serif for visual consistency */
   .trust-item .icon{display:none;}
-  .trust-item strong{font-size:36px;font-weight:600;margin-bottom:8px;}
-  .trust-item span{font-size:15.5px;font-weight:500;opacity:.72;}
+  .trust-item strong{
+    display:block;font-family:var(--serif);font-size:22px;font-weight:600;
+    color:#fff;line-height:1.2;margin-bottom:6px;letter-spacing:-0.01em;
+  }
+  .trust-item strong .copy-mobile{font-family:var(--serif);}
+  .trust-item > span{display:block;font-size:12.5px;font-weight:500;opacity:.72;line-height:1.3;}
 
   /* 2c. Eyebrow above the hero headline — more breathing room, quieter weight */
   .hero-copy .eyebrow{margin-top:30px;font-size:10px;opacity:.85;}
@@ -1632,9 +1636,8 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   /* 10. Copy-swap pattern — desktop/tablet copy hidden, shorter mobile copy shown.
      Add sibling spans <span class="copy-desktop">…</span><span class="copy-mobile" style="display:none">…</span>
      wherever mobile-specific shortened copy is needed; this rule flips visibility below 560px. */
-  .copy-desktop{display:none;}
-  .copy-mobile{display:inline;}
-  p .copy-mobile, .sub .copy-mobile{display:inline;}
+  .copy-desktop{display:none!important;}
+  .copy-mobile{display:inline!important;}
 }
 @media(min-width:561px){
   .mobile-cta-bar{display:none;}
