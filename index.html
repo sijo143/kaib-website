@@ -401,9 +401,10 @@ header.scrolled .nav-toggle{color:var(--ink);}
 @media(max-width:560px){
   #hero{min-height:100vh;}
   .hero-content{padding:110px 0 52px;}
-  .hero-copy h1{font-size:clamp(30px,8vw,40px);margin-bottom:28px;}
-  .hero-copy .sub{margin-bottom:36px;}
-  .hero-ctas{margin-bottom:40px;}
+  .hero-copy h1{font-size:clamp(30px,8vw,40px);margin-bottom:20px;}
+  .hero-copy .sub{margin-bottom:48px;font-size:14.5px;}
+  .hero-ctas{margin-bottom:52px;flex-direction:column;gap:14px;}
+  .hero-ctas .btn{width:100%;box-sizing:border-box;justify-content:center;}
   .hero-copy .eyebrow{letter-spacing:0.14em;}
   .hero-overlay{
     background:
@@ -1543,7 +1544,7 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   .trust-item span{font-size:9.5px;font-weight:400;opacity:.75;}
 
   /* 2c. Eyebrow above the hero headline — more breathing room, quieter weight */
-  .hero-copy .eyebrow{margin-top:18px;font-size:10px;opacity:.85;}
+  .hero-copy .eyebrow{margin-top:30px;font-size:10px;opacity:.85;}
 
   /* 3. Philosophy / editorial bridge — text was touching the viewport edges */
   .bridge-inner{padding:0 22px;}
@@ -1743,7 +1744,7 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   <div class="hero-content">
     <div class="container">
       <div class="hero-copy">
-        <span class="eyebrow reveal">AUTHENTIC KERALA AYURVEDA &nbsp;•&nbsp; SERVING EUROPE</span>
+        <span class="eyebrow reveal"><span class="copy-desktop">AUTHENTIC KERALA AYURVEDA &nbsp;•&nbsp; SERVING EUROPE</span><span class="copy-mobile">AUTHENTIC KERALA AYURVEDA</span></span>
         <h1 class="reveal reveal-delay-1"><span class="line-mask"><span class="line-inner">Healing begins</span></span><span class="line-mask"><span class="line-inner">with understanding.</span></span></h1>
         <p class="sub reveal reveal-delay-2">Authentic Kerala Ayurveda in Barcelona, guided by Kerala-trained doctors who understand your health before recommending personalised treatments.</p>
 
