@@ -1534,26 +1534,26 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
 
   /* 2. Hero stats card — remove the stray bottom border/padding under the last row */
   .trust-strip{
-    display:grid;grid-template-columns:1fr 1fr;gap:20px 20px;
+    display:grid;grid-template-columns:1fr 1fr;gap:28px 20px;
     padding:0;background:transparent;backdrop-filter:none;border:none;box-shadow:none;
   }
   .trust-item{
-    display:block;width:auto;flex:none;padding:0;border:none;gap:0;
+    display:flex;flex-direction:column;align-items:flex-start;width:auto;flex:none;padding:0 0 0 14px;border:none;gap:0;
+    border-left:1.5px solid var(--gold-soft);
   }
   .trust-item:nth-child(n+3){border-bottom:none;padding-bottom:0;}
-  .trust-item:nth-child(odd){border-right:none;padding-left:0;}
+  .trust-item:nth-child(odd){border-right:none;}
   .trust-item:nth-child(even){padding-right:0;}
-  .trust-item:first-child{padding-left:0;}
+  .trust-item:first-child{padding-left:14px;}
 
-  /* 2b. Stats/trust strip redesign — sized to sit proportionally under the hero CTAs,
-     primary line set in the site's heading serif for visual consistency */
+  /* 2b. Stats/trust strip redesign — matches reference: sans-serif type, gold left divider accent */
   .trust-item .icon{display:none;}
   .trust-item strong{
-    display:block;font-family:var(--serif);font-size:22px;font-weight:600;
-    color:#fff;line-height:1.2;margin-bottom:6px;letter-spacing:-0.01em;
+    display:block;font-family:var(--sans);font-size:24px;font-weight:600;
+    color:#fff;line-height:1.25;margin-bottom:6px;letter-spacing:-0.01em;
   }
-  .trust-item strong .copy-mobile{font-family:var(--serif);}
-  .trust-item > span{display:block;font-size:12.5px;font-weight:500;opacity:.72;line-height:1.3;}
+  .trust-item strong .copy-mobile{font-family:var(--sans);}
+  .trust-item > span{display:block;font-family:var(--sans);font-size:15px;font-weight:400;opacity:.65;line-height:1.3;}
 
   /* 2c. Eyebrow above the hero headline — more breathing room, quieter weight */
   .hero-copy .eyebrow{margin-top:30px;font-size:10px;opacity:.85;}
@@ -2801,11 +2801,11 @@ const journeyData = {
   stress:{title:'Stress Recovery Programme',chips:['Burnout','Anxiety','Poor Sleep','Fatigue'],desc:'For those feeling mentally exhausted, overwhelmed, or disconnected from everyday life — a personalised programme to calm the nervous system and restore balance.',outcomes:['Reduced stress and anxiety','Deeper, more restful sleep','Renewed clarity and energy'],quote:'"Stress is rarely the root cause. We begin by understanding what your body is trying to tell you."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:"images/Stress.png",cta:'Book a Consultation'},
   sleep:{title:'Restorative Sleep Programme',chips:['Insomnia','Restlessness','Irregular Sleep'],desc:'A gentle, personalised approach to help your body and mind wind down naturally, addressing root causes rather than masking symptoms.',outcomes:['Easier, faster time to sleep','Fewer night-time wakings','A calmer evening routine'],quote:'"Poor sleep is rarely just about sleep — we look at diet, stress, and daily rhythm together."',doctor:'Dr. Kiranlal VS, Ayurvedic Consultant',photo:"images/Sleep.png",cta:'Book a Consultation'},
   digestion:{title:'Digestive Balance Programme',chips:['Bloating','Irregularity','Sensitive Digestion'],desc:'A personalised plan to strengthen digestive fire (Agni), ease discomfort, and rebuild a healthy relationship with food.',outcomes:['Improved digestion and comfort','More consistent energy after meals','Personalised dietary guidance'],quote:'"Healthy digestion begins with restoring balance, not suppressing symptoms."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:"images/Digestion.png",cta:'Book a Consultation'},
-  women:{title:"Women's Health Programme",chips:['Hormonal Balance','Cycle Health','Life Transitions'],desc:'Compassionate, personalised care addressing hormonal balance, cycle health, and the transitions unique to women at every stage of life.',outcomes:['Better hormonal balance','More comfortable cycles','Support through life transitions'],quote:'"Every stage of a woman\'s life calls for a different kind of care — we listen first, then personalise."',doctor:'Isabella Argenteri, Ayurvedic Therapist',photo:"Women's Health.png",cta:'Book a Consultation'},
+  women:{title:"Women's Health Programme",chips:['Hormonal Balance','Cycle Health','Life Transitions'],desc:'Compassionate, personalised care addressing hormonal balance, cycle health, and the transitions unique to women at every stage of life.',outcomes:['Better hormonal balance','More comfortable cycles','Support through life transitions'],quote:'"Every stage of a woman\'s life calls for a different kind of care — we listen first, then personalise."',doctor:'Isabella Argenteri, Ayurvedic Therapist',photo:"images/Womens Health.png",cta:'Book a Consultation'},
   ageing:{title:'Healthy Ageing Programme',chips:['Vitality','Mobility','Preventive Care'],desc:'Supporting long-term vitality, mobility, and resilience through authentic Ayurvedic care tailored to your stage of life.',outcomes:['Improved mobility and vitality','Stronger long-term resilience','A preventive, whole-body approach'],quote:'"Our goal isn\'t simply adding years to life—it is helping you enjoy them with vitality."',doctor:'Dr. Kiranlal VS, Ayurvedic Consultant',photo:"images/Healthy Aging.png",cta:'Book a Consultation'},
   pain:{title:'Pain & Mobility Programme',chips:['Joint Pain','Stiffness','Chronic Discomfort'],desc:'A personalised combination of treatments and guidance designed to ease pain, restore mobility, and support long-term joint health.',outcomes:['Reduced pain and stiffness','Improved range of motion','A sustainable long-term plan'],quote:'"We look beyond the joint that hurts to understand what\'s driving the imbalance."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:"images/Pain & Mobility.png",cta:'Book a Consultation'},
   detox:{title:'Detox & Rejuvenation Programme',chips:['Chronic Concerns','Detox','Lifestyle Reset'],desc:'A personalised Panchakarma-based detox and rejuvenation programme designed entirely around your health and guided by your doctor.',outcomes:['A deep, guided reset','Renewed energy and clarity','A personalised lifestyle plan'],quote:'"Panchakarma is not one-size-fits-all — every protocol is built around the person in front of us."',doctor:'Dr. Kiranlal VS, Ayurvedic Consultant',photo:"images/Detox & Rejuvenation.png",cta:'Book a Consultation'},
-  unsure:{title:"Let's Talk It Through Together",chips:['Anyone unsure where to begin'],desc:"That's completely alright — most guests start here. Our Kerala-trained doctors begin with a conversation about your health, lifestyle, and goals before recommending anything.",outcomes:['A no-obligation conversation','Guidance from a real doctor','A plan built around you, not a package'],quote:'"You don\'t need to know the right path yet. That\'s exactly what the first consultation is for."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:"I'm Not Sure.png",cta:'Book a Consultation'}
+  unsure:{title:"Let's Talk It Through Together",chips:['Anyone unsure where to begin'],desc:"That's completely alright — most guests start here. Our Kerala-trained doctors begin with a conversation about your health, lifestyle, and goals before recommending anything.",outcomes:['A no-obligation conversation','Guidance from a real doctor','A plan built around you, not a package'],quote:'"You don\'t need to know the right path yet. That\'s exactly what the first consultation is for."',doctor:'Dr. Vijay Carolin, Lead Ayurvedic Consultant',photo:"images/Im Not Sure.png",cta:'Book a Consultation'}
 };
 const goalChipsEl = document.getElementById('goalChips');
 if(goalChipsEl){
