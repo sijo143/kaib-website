@@ -227,6 +227,7 @@ header.scrolled{
 header.scrolled .brand-icon-light{opacity:0;}
 header.scrolled .brand-icon-dark{opacity:1;}
 .brand-icon-mobile-light,.brand-icon-mobile-dark{display:none;}
+.copy-mobile{display:none;}
 .brand-text{display:flex;flex-direction:column;}
 .brand-name{font-family:var(--serif);font-size:14px;line-height:1.2;letter-spacing:0.03em;text-transform:uppercase;color:#fff;transition:color .5s var(--ease);}
 .brand-sub{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-soft);margin-top:3px;transition:color .5s var(--ease);}
@@ -267,6 +268,7 @@ header.scrolled .nav-toggle{color:var(--ink);}
     background:var(--ivory-soft);padding:100px 32px 32px;
     transform:translateX(100%);transition:transform .5s var(--ease);
     box-shadow:-20px 0 50px -20px rgba(0,0,0,0.15);
+    z-index:501;
   }
   .nav-links.open{transform:translateX(0);}
   .nav-links a{width:100%;padding:16px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink)!important;opacity:1;}
@@ -1515,6 +1517,7 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   /* 1b. Mobile nav logo swap — use the compact mob-kaib-logo variants instead of the full wordmark,
      following the same header.scrolled opacity-crossfade pattern as the desktop brand-icon pair */
   .copy-desktop-nav{display:none;}
+  .brand-mark{width:132px;height:50px;}
   .brand-icon-mobile-light,.brand-icon-mobile-dark{
     display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:left center;
     transition:opacity .4s var(--ease);
@@ -1736,7 +1739,7 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
       <div class="hero-copy">
         <span class="eyebrow reveal">AUTHENTIC KERALA AYURVEDA &nbsp;•&nbsp; SERVING EUROPE</span>
         <h1 class="reveal reveal-delay-1"><span class="line-mask"><span class="line-inner">Healing begins</span></span><span class="line-mask"><span class="line-inner">with understanding.</span></span></h1>
-        <p class="sub reveal reveal-delay-2"><span class="copy-desktop">Authentic Kerala Ayurveda in Barcelona, led by Kerala-trained doctors who take time to understand your health, lifestyle, and goals before recommending personalised treatments, retreats, or consultations.</span><span class="copy-mobile" style="display:none;">Authentic Kerala Ayurveda in Barcelona, guided by Kerala-trained doctors who understand your health before recommending personalised treatments.</span></p>
+        <p class="sub reveal reveal-delay-2">Authentic Kerala Ayurveda in Barcelona, guided by Kerala-trained doctors who understand your health before recommending personalised treatments.</p>
 
         <div class="hero-ctas reveal reveal-delay-3">
           <a href="#invite" class="btn btn-gold">Book a Consultation <svg class="icon btn-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
@@ -1744,10 +1747,10 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
         </div>
 
         <div class="trust-strip reveal reveal-delay-3">
-          <div class="trust-item"><svg class="icon"><use href="#icon-star"/></svg><strong>4.9</strong><span><span class="copy-desktop">Google Rating</span><span class="copy-mobile" style="display:none;">Google Reviews</span></span></div>
-          <div class="trust-item"><svg class="icon"><use href="#icon-medal"/></svg><strong>20+</strong><span><span class="copy-desktop">Years</span><span class="copy-mobile" style="display:none;">Clinical Experience</span></span></div>
-          <div class="trust-item"><svg class="icon"><use href="#icon-globe"/></svg><strong>1,000+</strong><span><span class="copy-desktop">Patients</span><span class="copy-mobile" style="display:none;">Across Europe</span></span></div>
-          <div class="trust-item"><svg class="icon"><use href="#icon-user"/></svg><strong>Kerala</strong><span><span class="copy-desktop">Doctors</span><span class="copy-mobile" style="display:none;">Ayurvedic Doctors</span></span></div>
+          <div class="trust-item"><svg class="icon"><use href="#icon-star"/></svg><strong>4.9</strong><span><span class="copy-desktop">Google Rating</span><span class="copy-mobile">Google Reviews</span></span></div>
+          <div class="trust-item"><svg class="icon"><use href="#icon-medal"/></svg><strong>20+</strong><span><span class="copy-desktop">Years</span><span class="copy-mobile">Clinical Experience</span></span></div>
+          <div class="trust-item"><svg class="icon"><use href="#icon-globe"/></svg><strong>1,000+</strong><span><span class="copy-desktop">Patients</span><span class="copy-mobile">Across Europe</span></span></div>
+          <div class="trust-item"><svg class="icon"><use href="#icon-user"/></svg><strong>Kerala</strong><span><span class="copy-desktop">Doctors</span><span class="copy-mobile">Ayurvedic Doctors</span></span></div>
         </div>
       </div>
     </div>
