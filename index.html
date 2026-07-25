@@ -226,6 +226,7 @@ header.scrolled{
 .brand-icon-dark{opacity:0;}
 header.scrolled .brand-icon-light{opacity:0;}
 header.scrolled .brand-icon-dark{opacity:1;}
+.brand-icon-mobile-light,.brand-icon-mobile-dark{display:none;}
 .brand-text{display:flex;flex-direction:column;}
 .brand-name{font-family:var(--serif);font-size:14px;line-height:1.2;letter-spacing:0.03em;text-transform:uppercase;color:#fff;transition:color .5s var(--ease);}
 .brand-sub{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-soft);margin-top:3px;transition:color .5s var(--ease);}
@@ -271,6 +272,25 @@ header.scrolled .nav-toggle{color:var(--ink);}
   .nav-links a{width:100%;padding:16px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--ink)!important;opacity:1;}
   .nav-toggle{display:flex;}
   .nav-lang{display:none;}
+  .nav-links-close{
+    display:flex;align-items:center;justify-content:center;
+    position:absolute;top:26px;right:28px;width:36px;height:36px;
+    background:none;border:none;border-radius:50%;cursor:pointer;color:var(--ink);
+    transition:background-color .2s ease-out;
+  }
+  .nav-links-close:hover{background:rgba(42,38,32,0.06);}
+  .nav-links-close svg{width:18px;height:18px;}
+  .nav-backdrop{
+    position:fixed;inset:0;z-index:499;background:rgba(20,18,14,0.4);
+    opacity:0;visibility:hidden;transition:opacity .4s var(--ease),visibility .4s var(--ease);
+  }
+  .nav-backdrop.open{opacity:1;visibility:visible;}
+  /* Nav hide-on-scroll (hamburger breakpoint only) — reuses the mobileCtaBar show/hide pattern */
+  header{transition:all .5s var(--ease),transform .3s var(--ease);}
+  header.nav-hidden{transform:translateY(-100%);}
+}
+@media(min-width:981px){
+  .nav-links-close,.nav-backdrop{display:none;}
 }
 @media(max-width:560px){
   .nav-cta .btn{padding:11px 18px;font-size:13.5px;}
@@ -427,7 +447,7 @@ header.scrolled .nav-toggle{color:var(--ink);}
   opacity:0;transform:scale(.7);transition:opacity .8s var(--ease),transform .8s var(--ease);
 }
 .reveal.is-visible .bridge-icon{opacity:1;transform:scale(1);}
-.bridge-icon svg{width:22px;height:22px;}
+.bridge-icon img{width:64px;height:64px;object-fit:contain;}
 .bridge p{
   position:relative;font-family:var(--serif);font-size:clamp(21px,2.3vw,28px);line-height:1.5;font-weight:400;
   max-width:600px;margin:0 auto;color:var(--ink);
@@ -1174,15 +1194,15 @@ textarea.gc-input{resize:vertical;min-height:110px;}
 .gc-trust-mini li svg{width:14px;height:14px;color:var(--gold-text);flex-shrink:0;margin-top:2px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;}
 
 .gc-step-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.gc-back{background:none;border:none;cursor:pointer;font-size:13px;color:var(--ink-soft);display:flex;align-items:center;gap:6px;padding:8px 4px;transition:color .2s;}
-.gc-back:hover{color:var(--ink);}
+/* .gc-back / .gc-continue now also carry the standard .btn.btn-secondary / .btn.btn-gold
+   classes (task: contact form button consistency, all breakpoints) — these rules only add
+   the layout tweaks specific to the step-nav row, letting the shared .btn* rules drive
+   padding/radius/color/hover so the form matches buttons used sitewide. */
+.gc-back{gap:6px;font-family:var(--sans);}
 .gc-continue{
-  background:var(--forest);color:#fff;padding:15px 30px;border-radius:10px;border:none;
-  font-size:13.5px;letter-spacing:.04em;font-weight:600;display:inline-flex;align-items:center;gap:9px;
-  cursor:pointer;font-family:var(--sans);transition:background-color .25s var(--ease),transform .2s;margin-left:auto;
+  gap:9px;font-family:var(--sans);margin-left:auto;font-size:14.5px;
 }
 .gc-continue svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;transition:transform .25s var(--ease);}
-.gc-continue:hover{background:var(--forest-deep);}
 .gc-continue:hover svg{transform:translateX(3px);}
 .gc-continue:active{transform:scale(0.98);}
 
@@ -1374,6 +1394,13 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   section{padding:var(--section-pad) 0;}
   .eyebrow{font-size:11px;letter-spacing:.13em;}
 
+  /* CTA button height — trim ~12% off vertical padding/min-height, keep text centered */
+  .btn{padding:14px 30px;min-height:0;display:inline-flex;align-items:center;}
+  #hero .btn-gold{padding:14px 30px;min-height:46px;}
+  #hero .btn-on-dark.btn-secondary{min-height:46px;}
+  .ready-ctas .btn-gold{min-height:44px;padding:14px 30px;}
+  .mobile-cta-bar .btn{min-height:46px;}
+
   /* Section headers — the biggest repeated source of scroll */
   .section-head{margin-bottom:32px;}
   .section-head h2{font-size:clamp(25px,7vw,30px);margin-bottom:12px;line-height:1.18;}
@@ -1384,6 +1411,8 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   .bridge-support{margin-top:16px;}
 
   /* Doctors / featured credentials */
+  /* Doctor portrait was cropped so only half the face showed — shift the focal point up */
+  .featured-photo img{object-position:center 20%;}
   .featured-body .eyebrow{margin-bottom:8px;}
   .featured-body h3{font-size:clamp(24px,6vw,28px);margin-bottom:18px;}
   .cred-list{gap:10px;margin-bottom:22px;}
@@ -1422,8 +1451,38 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   .fs-quote{margin-bottom:12px;}
   .fs-trust{margin-top:16px;}
 
+  /* Guest Stories mobile reorder — flatten the nested wrappers with display:contents so the
+     photo, quote, story, etc. become direct flex children of #stories .container and can be
+     reordered with `order` without touching the DOM. Desktop/tablet keep normal document order. */
+  #stories .container{display:flex;flex-direction:column;}
+  #stories .section-head{display:contents;}
+  #stories .section-head .eyebrow{order:1;}
+  #stories .section-head h2{order:1;}
+  #stories .section-head p{order:2;}
+  .featured-story{display:contents;}
+  .fs-grid{display:contents;}
+  .fs-media{order:3;}
+  .fs-content{display:contents;}
+  .fs-quote-mark{order:4;}
+  .fs-quote{order:4;}
+  .fs-stars{order:5;}
+  .fs-story-block{order:6;}
+  .fs-guest{order:7;}
+  .fs-trust{order:8;}
+  .fs-nav{order:9;}
+  .fs-autoplay-track{order:10;}
+
   /* Quiet CTA */
-  .quiet-cta-inner{gap:24px;}
+  .quiet-cta-inner{gap:24px;grid-template-columns:1fr;}
+  .quiet-cta-actions{display:flex;flex-direction:column;gap:12px;width:100%;}
+  .quiet-cta-actions .btn{width:100%;justify-content:center;text-align:center;}
+  /* Give "Talk to a Doctor" the standard secondary (.btn.btn-secondary) pill treatment on mobile */
+  .quiet-cta-secondary{
+    width:100%;justify-content:center;text-align:center;
+    padding:16px 32px;border-radius:999px;border:1px solid rgba(42,38,32,0.35);
+    background:transparent;color:var(--ink);text-transform:none;letter-spacing:0.02em;
+    font-size:14.5px;font-weight:500;box-sizing:border-box;
+  }
 
   /* Consultation panel */
   .gc-panel{padding:26px 20px;}
@@ -1453,10 +1512,30 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   /* 1. Nav — CTA moves to the floating bottom bar, so header keeps only logo + hamburger */
   .nav-cta{display:none;}
 
+  /* 1b. Mobile nav logo swap — use the compact mob-kaib-logo variants instead of the full wordmark,
+     following the same header.scrolled opacity-crossfade pattern as the desktop brand-icon pair */
+  .copy-desktop-nav{display:none;}
+  .brand-icon-mobile-light,.brand-icon-mobile-dark{
+    display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:left center;
+    transition:opacity .4s var(--ease);
+  }
+  .brand-icon-mobile-dark{opacity:0;}
+  header.scrolled .brand-icon-mobile-light{opacity:0;}
+  header.scrolled .brand-icon-mobile-dark{opacity:1;}
+
   /* 2. Hero stats card — remove the stray bottom border/padding under the last row */
   .trust-strip{padding:16px 16px 6px;}
   .trust-item{padding-bottom:14px;}
   .trust-item:nth-child(n+3){border-bottom:none;padding-bottom:2px;}
+
+  /* 2b. Stats/trust strip redesign — bigger bolder numbers, quieter smaller labels,
+     larger fully-opaque gold icons instead of faint grey */
+  .trust-item .icon{width:16px;height:16px;color:var(--gold-soft);opacity:1;}
+  .trust-item strong{font-size:22px;font-weight:700;}
+  .trust-item span{font-size:9.5px;font-weight:400;opacity:.75;}
+
+  /* 2c. Eyebrow above the hero headline — more breathing room, quieter weight */
+  .hero-copy .eyebrow{margin-top:18px;font-size:10px;opacity:.85;}
 
   /* 3. Philosophy / editorial bridge — text was touching the viewport edges */
   .bridge-inner{padding:0 22px;}
@@ -1472,6 +1551,21 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   .goal-more-btn{display:none;}
   .goal-secondary{display:contents;}
   .goal-secondary .goal-card{opacity:1;transform:none;animation:none;}
+
+  /* 4b. FAQ category chips — match the goal-grid chip visual style exactly, as a single
+     swipeable horizontal row (same technique as item 4 above) instead of a wrapped/centred row */
+  .faq-topics{
+    flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+    scroll-snap-type:x proximity;padding-bottom:6px;margin-bottom:24px;gap:8px;
+    justify-content:flex-start;-ms-overflow-style:none;scrollbar-width:none;
+  }
+  .faq-topics::-webkit-scrollbar{display:none;}
+  .faq-topic-btn{
+    scroll-snap-align:start;flex:0 0 auto;padding:10px 16px;min-height:40px;
+    border:1px solid var(--line);border-radius:30px;background:var(--white);color:var(--ink);
+    display:flex;align-items:center;justify-content:center;white-space:nowrap;
+  }
+  .faq-topic-btn.active{background:var(--ink);border-color:var(--ink);color:var(--ivory-soft);}
 
   /* 5. Recommended For You card — less padding, more room for content */
   .rec-panel .rec-left{padding:26px 20px;}
@@ -1517,6 +1611,13 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
     display:flex;align-items:center;justify-content:center;box-shadow:0 12px 24px -10px rgba(0,0,0,0.35);
   }
   .mobile-cta-whatsapp img{width:26px;height:26px;object-fit:contain;}
+
+  /* 10. Copy-swap pattern — desktop/tablet copy hidden, shorter mobile copy shown.
+     Add sibling spans <span class="copy-desktop">…</span><span class="copy-mobile" style="display:none">…</span>
+     wherever mobile-specific shortened copy is needed; this rule flips visibility below 560px. */
+  .copy-desktop{display:none;}
+  .copy-mobile{display:inline;}
+  p .copy-mobile, .sub .copy-mobile{display:inline;}
 }
 @media(min-width:561px){
   .mobile-cta-bar{display:none;}
@@ -1593,17 +1694,23 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
   <div class="container nav-inner">
     <a href="#hero" class="brand">
       <span class="brand-mark">
-        <img src="images/kaib-logo.svg" class="brand-icon brand-icon-light" alt="Kerala Ayurveda Institute Barcelona">
-        <img src="images/kaib-logo-dark.svg" class="brand-icon brand-icon-dark" alt="Kerala Ayurveda Institute Barcelona">
+        <img src="images/kaib-logo.svg" class="brand-icon brand-icon-light copy-desktop-nav" alt="Kerala Ayurveda Institute Barcelona">
+        <img src="images/kaib-logo-dark.svg" class="brand-icon brand-icon-dark copy-desktop-nav" alt="Kerala Ayurveda Institute Barcelona">
+        <img src="images/mob-kaib-logo.svg" class="brand-icon brand-icon-mobile-light" alt="Kerala Ayurveda Institute Barcelona">
+        <img src="images/mob-kaib-logo-dark.svg" class="brand-icon brand-icon-mobile-dark" alt="Kerala Ayurveda Institute Barcelona">
       </span>
     </a>
     <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <button class="nav-links-close" id="navLinksClose" aria-label="Close menu" type="button">
+        <svg class="icon"><use href="#icon-close"/></svg>
+      </button>
       <a href="#doctors">About</a>
       <a href="retreats.html">Retreats</a>
       <a href="#options">Treatments</a>
       <a href="#options">Courses</a>
       <a href="#visit">Contact</a>
     </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
     <div class="nav-cta">
       <button class="nav-lang" type="button" aria-label="Change language, current: English">
         <svg class="icon"><use href="#icon-globe"/></svg> EN
@@ -1629,7 +1736,7 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
       <div class="hero-copy">
         <span class="eyebrow reveal">AUTHENTIC KERALA AYURVEDA &nbsp;•&nbsp; SERVING EUROPE</span>
         <h1 class="reveal reveal-delay-1"><span class="line-mask"><span class="line-inner">Healing begins</span></span><span class="line-mask"><span class="line-inner">with understanding.</span></span></h1>
-        <p class="sub reveal reveal-delay-2">Authentic Kerala Ayurveda in Barcelona, led by Kerala-trained doctors who take time to understand your health, lifestyle, and goals before recommending personalised treatments, retreats, or consultations.</p>
+        <p class="sub reveal reveal-delay-2"><span class="copy-desktop">Authentic Kerala Ayurveda in Barcelona, led by Kerala-trained doctors who take time to understand your health, lifestyle, and goals before recommending personalised treatments, retreats, or consultations.</span><span class="copy-mobile" style="display:none;">Authentic Kerala Ayurveda in Barcelona, guided by Kerala-trained doctors who understand your health before recommending personalised treatments.</span></p>
 
         <div class="hero-ctas reveal reveal-delay-3">
           <a href="#invite" class="btn btn-gold">Book a Consultation <svg class="icon btn-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
@@ -1637,10 +1744,10 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
         </div>
 
         <div class="trust-strip reveal reveal-delay-3">
-          <div class="trust-item"><svg class="icon"><use href="#icon-star"/></svg><strong>4.9</strong><span>Google Rating</span></div>
-          <div class="trust-item"><svg class="icon"><use href="#icon-medal"/></svg><strong>20+</strong><span>Years</span></div>
-          <div class="trust-item"><svg class="icon"><use href="#icon-globe"/></svg><strong>1,000+</strong><span>Patients</span></div>
-          <div class="trust-item"><svg class="icon"><use href="#icon-user"/></svg><strong>Kerala</strong><span>Doctors</span></div>
+          <div class="trust-item"><svg class="icon"><use href="#icon-star"/></svg><strong>4.9</strong><span><span class="copy-desktop">Google Rating</span><span class="copy-mobile" style="display:none;">Google Reviews</span></span></div>
+          <div class="trust-item"><svg class="icon"><use href="#icon-medal"/></svg><strong>20+</strong><span><span class="copy-desktop">Years</span><span class="copy-mobile" style="display:none;">Clinical Experience</span></span></div>
+          <div class="trust-item"><svg class="icon"><use href="#icon-globe"/></svg><strong>1,000+</strong><span><span class="copy-desktop">Patients</span><span class="copy-mobile" style="display:none;">Across Europe</span></span></div>
+          <div class="trust-item"><svg class="icon"><use href="#icon-user"/></svg><strong>Kerala</strong><span><span class="copy-desktop">Doctors</span><span class="copy-mobile" style="display:none;">Ayurvedic Doctors</span></span></div>
         </div>
       </div>
     </div>
@@ -1681,7 +1788,7 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
 <div class="bridge">
   <div class="bridge-texture" aria-hidden="true"></div>
   <div class="bridge-inner reveal">
-    <div class="bridge-icon"><svg aria-hidden="true"><use href="#icon-kaib-mark"/></svg></div>
+    <div class="bridge-icon"><img src="images/kaib-round-logo.svg" alt="" aria-hidden="true"></div>
     <p>
       <span class="bridge-line"><span>Your story comes before your treatment.</span></span>
     </p>
@@ -2242,7 +2349,7 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
           </div>
           <div class="gc-step-nav">
             <span></span>
-            <button type="button" class="gc-continue" data-next>Continue <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+            <button type="button" class="gc-continue btn btn-gold" data-next>Continue <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
           </div>
         </div>
 
@@ -2261,8 +2368,8 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
           </div>
           <div class="gc-field-error" id="gcGoalError" style="display:none;margin:-2px 0 16px;">Choose the option that feels closest — you can always tell us more later.</div>
           <div class="gc-step-nav">
-            <button type="button" class="gc-back" data-back><svg class="icon" aria-hidden="true" style="width:14px;height:14px;"><use href="#icon-chevron-left"/></svg> Back</button>
-            <button type="button" class="gc-continue" data-next>Continue <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+            <button type="button" class="gc-back btn btn-secondary" data-back><svg class="icon" aria-hidden="true" style="width:14px;height:14px;"><use href="#icon-chevron-left"/></svg> Back</button>
+            <button type="button" class="gc-continue btn btn-gold" data-next>Continue <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
           </div>
         </div>
 
@@ -2278,8 +2385,8 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
           <div class="gc-confidential"><svg aria-hidden="true"><use href="#icon-lock"/></svg> Everything you share remains confidential.</div>
           <div class="gc-thanks" id="gcThanks">Thanks for sharing.</div>
           <div class="gc-step-nav">
-            <button type="button" class="gc-back" data-back><svg class="icon" aria-hidden="true" style="width:14px;height:14px;"><use href="#icon-chevron-left"/></svg> Back</button>
-            <button type="button" class="gc-continue" data-next>Continue <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+            <button type="button" class="gc-back btn btn-secondary" data-back><svg class="icon" aria-hidden="true" style="width:14px;height:14px;"><use href="#icon-chevron-left"/></svg> Back</button>
+            <button type="button" class="gc-continue btn btn-gold" data-next>Continue <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
           </div>
         </div>
 
@@ -2311,8 +2418,8 @@ footer{background:var(--olive);color:rgba(246,240,227,0.75);padding:80px 0 32px;
             <li><svg aria-hidden="true"><use href="#icon-check"/></svg> No obligation to proceed</li>
           </ul>
           <div class="gc-step-nav">
-            <button type="button" class="gc-back" data-back><svg class="icon" aria-hidden="true" style="width:14px;height:14px;"><use href="#icon-chevron-left"/></svg> Back</button>
-            <button type="submit" class="gc-continue">Request My Consultation <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+            <button type="button" class="gc-back btn btn-secondary" data-back><svg class="icon" aria-hidden="true" style="width:14px;height:14px;"><use href="#icon-chevron-left"/></svg> Back</button>
+            <button type="submit" class="gc-continue btn btn-gold">Request My Consultation <svg aria-hidden="true"><use href="#icon-arrow"/></svg></button>
           </div>
         </div>
       </form>
@@ -2544,11 +2651,34 @@ window.addEventListener('load', () => {
   }
 }
 
-// Nav scroll state
+// Nav scroll state — also hides/shows the header on scroll direction, but only at the
+// hamburger breakpoint (<=980px), mirroring the mobileCtaBar show/hide-on-scroll pattern.
 const header = document.getElementById('siteHeader');
-window.addEventListener('scroll', ()=>{
-  header.classList.toggle('scrolled', window.scrollY > 40);
-});
+{
+  let navLastY = window.scrollY;
+  let navTicking = false;
+  const navUpdate = ()=>{
+    const y = window.scrollY;
+    header.classList.toggle('scrolled', y > 40);
+    if(window.matchMedia('(max-width:980px)').matches && !navLinks.classList.contains('open')){
+      const delta = y - navLastY;
+      if(y < 80){
+        header.classList.remove('nav-hidden');
+      } else if(delta > 4){
+        header.classList.add('nav-hidden');
+      } else if(delta < -4){
+        header.classList.remove('nav-hidden');
+      }
+    } else {
+      header.classList.remove('nav-hidden');
+    }
+    navLastY = y;
+    navTicking = false;
+  };
+  window.addEventListener('scroll', ()=>{
+    if(!navTicking){ requestAnimationFrame(navUpdate); navTicking = true; }
+  }, {passive:true});
+}
 
 // Reveal on scroll
 const revealEls = document.querySelectorAll('.reveal');
@@ -2791,16 +2921,23 @@ if(goalChipsEl){
 // Mobile nav toggle
 const navToggle = document.getElementById('navToggle');
 const navLinks = document.getElementById('navLinks');
+const navLinksClose = document.getElementById('navLinksClose');
+const navBackdrop = document.getElementById('navBackdrop');
+const closeNavMenu = ()=>{
+  navLinks.classList.remove('open');
+  if(navBackdrop) navBackdrop.classList.remove('open');
+  navToggle.setAttribute('aria-expanded','false');
+  navToggle.querySelector('svg use').setAttribute('href', '#icon-menu');
+};
 navToggle.addEventListener('click', ()=>{
   const isOpen = navLinks.classList.toggle('open');
+  if(navBackdrop) navBackdrop.classList.toggle('open', isOpen);
   navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
   navToggle.querySelector('svg use').setAttribute('href', isOpen ? '#icon-close' : '#icon-menu');
 });
-navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
-  navLinks.classList.remove('open');
-  navToggle.setAttribute('aria-expanded','false');
-  navToggle.querySelector('svg use').setAttribute('href', '#icon-menu');
-}));
+if(navLinksClose) navLinksClose.addEventListener('click', closeNavMenu);
+if(navBackdrop) navBackdrop.addEventListener('click', closeNavMenu);
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeNavMenu));
 
 // FAQ accordion (mouse + keyboard accessible)
 document.querySelectorAll('.faq-item').forEach(item=>{
